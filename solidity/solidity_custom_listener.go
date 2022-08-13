@@ -45,7 +45,7 @@ func (s *CustomSolidityListener) EnterPragmaDirective(ctx *PragmaDirectiveContex
 	if tk != nil {
 		tktext := tk.GetText()
 		content := space.ReplaceAllString(tktext, " ")
-		if strings.Index(content, "solidity ^") != -1 {
+		if strings.Index(content, "solidity 0.") == -1 {
 			if !s.result.Errored {
 				//alert
 				s.result.Errored = true
@@ -53,7 +53,11 @@ func (s *CustomSolidityListener) EnterPragmaDirective(ctx *PragmaDirectiveContex
 				s.result.Start = ctx.GetStart().GetStart()
 				s.result.End = ctx.GetStop().GetStop()
 				s.result.LineNo = ctx.GetStart().GetLine()
-				s.result.SuggestedFix = strings.Replace(allLine, "^", "", 1)
+				allLine = strings.Replace(allLine, "^", "", 1)
+				allLine = strings.Replace(allLine, ">", "", 1)
+				allLine = strings.Replace(allLine, "<", "", 1)
+				allLine = strings.Replace(allLine, "=", "", 1)
+				s.result.SuggestedFix = allLine
 			}
 		}
 	}

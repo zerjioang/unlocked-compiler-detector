@@ -20,4 +20,16 @@ func TestDetector(t *testing.T) {
 		assert.True(t, result.Errored)
 		result.Print()
 	})
+	t.Run("first-app-example-2", func(t *testing.T) {
+		fmt.Println("Checking solidity version")
+		file := "testdata/first-app-2.sol"
+		data, err := ioutil.ReadFile(file)
+		assert.NoError(t, err)
+		assert.NotNil(t, data)
+		result, err2 := CheckVersion(file, data)
+		assert.NoError(t, err2)
+		assert.NotNil(t, result)
+		assert.True(t, result.Errored)
+		result.Print()
+	})
 }
