@@ -1,36 +1,17 @@
-<p align="center">
-  <img alt="PROJECT_TITLE_HERE Logo" src="./readme/cover.png" width="400px"></img>
-  <h3 align="center"><b>PROJECT_TITLE_HERE</b></h3>
-  <p align="center">PROJECT_DESCRIPTION_HERE</p>
-</p>
+# Unlocked Compiler Detector Example
 
-<p align="center">
-    <a href="../../releases">
-    <a href="LICENSE"><img alt="Software License" src="http://img.shields.io/:license-GPLv3-brightgreen.svg?style=flat-square"></a>
-</p>
+> Read original blog post at:https://curiousstuff.eu/post/autodetecting-unlocked-compiler-versions-in-solidity/
 
+## TLDR
 
-## Latest release
-
-[**Download**](../../releases)
-
-## Template features
-
-* README file image header.
-* Badge collection section in README
-* Link to releases download in README.
-* Support for [Stale bot](https://github.com/marketplace/stale).
-* Support for [Semgrep](https://github.com/marketplace/semgrep-devs).
-* Default templates for bug reporting, feature request.
-* Default SECURITY policy set up.
-* License Block.
-
-## Steps after cloning the repository
-
-Go to Github project settings and add the following secrets for
-
-* CODECOV:
-* SEMGREP:`SEMGREP_APP_TOKEN`
+```bash
+Unlocked Compiler Version Detected
+----------------------------------
+Affected line (L2) : pragma solidity ^0.8.13;
+Suggested fix      : pragma solidity 0.8.13;
+Confidence         : Very High
+Impact             : Informational
+```
 
 ## Contributing
 
